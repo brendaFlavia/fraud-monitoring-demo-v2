@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fraud Monitoring — PostBank Uganda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D1613" stroke-width="2.5"><path d="M12 2 3 6v6c0 5.5 3.8 9.7 9 11 5.2-1.3 9-5.5 9-11V6l-9-4Z"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Fraud Monitoring — PostBank Uganda</div>
+          <div class="brand-sub mono">Card transaction risk engine · model v1.0-xgb</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <a class="download-report-btn" href="/api/report/csv" download title="Download a CSV of every case decision — hand this to Card Operations to action any confirmed-fraud blocks via the switch">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Report
+        </a>
+        <div class="live-indicator"><span class="live-dot"></span><span class="mono live-label">LIVE</span></div>
+        <div class="mono metrics-label">precision <span class="metrics-val">96.4%</span> · recall <span class="metrics-val">96.7%</span></div>
+      </div>
+    </header>
+
+    <!-- KPI strip -->
+    <section class="kpi-strip" id="kpiStrip"></section>
+
+    <!-- Main split -->
+    <main class="split">
+      <section class="queue-panel">
+        <div class="queue-header">
+          <div class="panel-title">ALERT QUEUE</div>
+          <div class="filter-group" id="filterGroup">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="flagged">Flagged</button>
+            <button class="filter-btn" data-filter="critical">Critical</button>
+          </div>
+        </div>
+        <div class="queue-list scrollbar" id="queueList"></div>
+      </section>
+
+      <section class="detail-panel" id="detailPanel"></section>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
